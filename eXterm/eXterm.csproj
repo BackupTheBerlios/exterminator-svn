@@ -89,6 +89,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>TermControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\VersionIndicator.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VersionIndicator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -138,6 +142,12 @@
       <DependentUpon>TermControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\TermView.cs" />
+    <Compile Include="UI\Controls\VersionIndicator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\VersionIndicator.Designer.cs">
+      <DependentUpon>VersionIndicator.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>

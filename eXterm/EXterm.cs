@@ -24,6 +24,11 @@ namespace eXterm
 			get { return DbConnection == null; }
 		}
 
+		public static Version Version
+		{
+			get { return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version; }
+		}
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>

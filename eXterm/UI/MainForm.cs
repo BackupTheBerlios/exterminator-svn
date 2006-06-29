@@ -42,7 +42,7 @@ namespace eXterm.UI
 
 		#endregion
 
-		private void btnClose_OnClick(object sender, EventArgs e)
+		private void btnClose_Click(object sender, EventArgs e)
 		{
 			if (CloseClick != null)
 				CloseClick(sender, e);
