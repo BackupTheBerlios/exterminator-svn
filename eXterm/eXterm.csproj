@@ -1,0 +1,172 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37C041E2-7D40-41CE-A1D7-AC5D273BCD62}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eXterm</RootNamespace>
+    <AssemblyName>eXterm</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\SQLite.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\BO\SettingsBO.cs" />
+    <Compile Include="Data\Connections\Connection.cs" />
+    <Compile Include="Data\Connections\SqliteConnection.cs" />
+    <Compile Include="Data\DAOFactories\DAOFactory.cs" />
+    <Compile Include="Data\DAOFactories\SqliteDAOFactory.cs" />
+    <Compile Include="Data\DAO\SettingDAO.cs" />
+    <Compile Include="Data\DAO\SqliteSettingDAO.cs" />
+    <Compile Include="Data\DAO\SqliteTermDAO.cs" />
+    <Compile Include="Data\DAO\TermDAO.cs" />
+    <Compile Include="Data\DBType.cs" />
+    <Compile Include="Data\Model\ModelObjectBase.cs" />
+    <Compile Include="Data\Model\Setting.cs" />
+    <Compile Include="Data\Model\Term.cs" />
+    <Compile Include="Data\DBUtils\SqliteStarter.cs" />
+    <Compile Include="Data\DBUtils\Starter.cs" />
+    <Compile Include="Settings\Setup.cs" />
+    <Compile Include="Settings\SetupResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetupResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EXterm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Settings\SetupResources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SetupResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\Basic\PupupButton.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PupupButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\CalendarControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\DayControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\TermControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TermControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\Controls\Basic\PupupButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Basic\PupupButton.Designer.cs">
+      <DependentUpon>PupupButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CalendarControl.Designer.cs">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\CalendarPresenter.cs" />
+    <Compile Include="UI\Controls\CalendarView.cs" />
+    <Compile Include="UI\Controls\ControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\DayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\DayControl.Designer.cs">
+      <DependentUpon>DayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\DayView.cs" />
+    <Compile Include="UI\Controls\DayViewCollection.cs" />
+    <Compile Include="UI\Controls\TermControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\TermControl.Designer.cs">
+      <DependentUpon>TermControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\TermView.cs" />
+    <Compile Include="UI\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MainPresenter.cs" />
+    <Compile Include="UI\MainView.cs" />
+    <Compile Include="Utils\ConversionUtils.cs" />
+    <Compile Include="Utils\DateTimeUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQLite3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessLogic\" />
+    <Folder Include="Libs\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
