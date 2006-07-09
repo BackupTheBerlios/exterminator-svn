@@ -12,7 +12,7 @@ namespace eXterm.UI.Controls
 {
 	public partial class DayControl : ControlBase, IDayView
 	{
-		IList<Term> terms = new List<Term> ();
+		TermViewCollection terms = new TermViewCollection ();
 		DateTime day = DateTime.Today;
 
 		public DayControl(DateTime day)
@@ -21,12 +21,14 @@ namespace eXterm.UI.Controls
 			SetupStyle();
 
 			this.Day = day;
+
+			new DayPresenter(this);
 		}
 
 		#region IDayView Members
 
 		[DesignerSerializationVisibility (DesignerSerializationVisibility.Hidden)]
-		public IList<Term> Terms
+		public TermViewCollection TermViews
 		{
 			get { return terms; }
 			set
@@ -37,7 +39,7 @@ namespace eXterm.UI.Controls
 					return;
 				}
 				terms.Clear ();
-				foreach (Term t in value)
+				foreach (ITermView t in value)
 					terms.Add (t);
 			}
 		}
@@ -52,16 +54,45 @@ namespace eXterm.UI.Controls
 			}
 		}
 
+		public int PreferedTermHeight
+		{
+			get
+			{
+				return Height / 4;
+			}
+		}
+
+		public int PreferedTermWidth
+		{
+			get { return Width * 9 / 10; }
+		}
+
 		public void AddTermView(ITermView termView)
 		{
-			if ((termView is Control) && (!Controls.Contains ((Control) termView)))
-				Controls.Add ((Control) termView);
+			if ((termView is Control) && (!pnlTerms.Controls.Contains((Control)termView)))
+				pnlTerms.Controls.Add ((Control) termView);
 		}
 
 		public void RemoveTermView(ITermView termView)
 		{
-			if ((termView is Control) && (Controls.Contains((Control)termView)))
-				Controls.Remove((Control)termView);
+			if ((termView is Control) && (pnlTerms.Controls.Contains((Control)termView)))
+				pnlTerms.Controls.Remove((Control)termView);
+		}
+
+		public void AddTermViews(TermViewCollection termViews)
+		{
+			foreach (ITermView termView in termViews)
+				AddTermView(termView);
+		}
+
+		public void RemoveTermViews()
+		{
+			pnlTerms.Controls.Clear();
+		}
+
+		public ITermView CreateTermView(Term term)
+		{
+			return new TermControl(term);
 		}
 
 		#endregion

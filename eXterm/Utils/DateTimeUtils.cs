@@ -23,7 +23,7 @@ namespace eXterm.Utils
 
 		public static DateTime GetBeginningOfWeek(DateTime time)
 		{
-			return time.AddDays(-1 * (int)time.DayOfWeek).AddDays(1).Date;
+			return time.AddDays(-1 * (int)time.AddDays(-1).DayOfWeek).AddDays(1).Date;
 		}
 
 		public static bool IsDayVisible(DateTime time, DateTime referralTime)
@@ -41,5 +41,35 @@ namespace eXterm.Utils
 
 			return true;
 		}
+
+		public static DateTime FlattenDate(DateTime time)
+		{
+			DateTime flatTime = new DateTime(time.Ticks);
+			flatTime = flatTime.
+				AddYears(-(flatTime.Year - 2000)).
+				AddMonths(-(flatTime.Month - 1)).
+				AddDays(-(flatTime.Day - 1));
+			return flatTime;
+		}
+
+		public static string GetHourMinuteStr(DateTime time)
+		{
+			return GetTwoDigit(time.Hour) + ":" + GetTwoDigit(time.Minute);
+		}
+
+		private static string GetTwoDigit(int number)
+		{
+			if (number <= 0)
+				return "00";
+
+			if (number >= 100)
+				return "99";
+
+			if (number < 10)
+				return "0" + number.ToString();
+
+			return number.ToString();
+		}
+
 	}
 }

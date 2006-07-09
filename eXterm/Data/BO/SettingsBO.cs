@@ -78,5 +78,11 @@ namespace eXterm.Data.BO
 				settingsDAO.Update(currentSetting);
 			}
 		}
+
+		public void SavePosition(int xPosition, int yPosition)
+		{
+			XPosition = xPosition;
+			YPosition = yPosition;
+		}
 	}
 }

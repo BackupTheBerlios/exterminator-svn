@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using eXterm.Utils;
+
 namespace eXterm.Data.Model
 {
-	public class Term : ModelObjectBase
+	public class Term : ModelObjectBase, IComparable
 	{
 		private long id = 0;
 		private DateTime date = DateTime.Now;
@@ -47,6 +49,18 @@ namespace eXterm.Data.Model
 				else
 					text = string.Empty;
 			}
+		}
+
+		public int CompareTo(object o)
+		{
+			if (!(o is Term))
+				return -1;
+
+			Term term = (Term)o;
+
+			return DateTimeUtils.FlattenDate(Date).CompareTo(
+				DateTimeUtils.FlattenDate(term.Date)
+				);
 		}
 	}
 }

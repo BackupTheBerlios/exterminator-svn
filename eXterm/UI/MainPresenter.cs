@@ -24,13 +24,11 @@ namespace eXterm.UI
 			mainView.CloseClick += new EventHandler(OnViewCloseClick);
 		}
 
-		void OnViewLoad(object sender, EventArgs e)
+		private void OnViewLoad(object sender, EventArgs e)
 		{
 			if (!EXterm.InDesignerMode)
 			{
-				SettingsBO settings = new SettingsBO(
-					EXterm.DbConnection.CreateDAOFactory().CreateSettingsDAO()
-				);
+				SettingsBO settings = new SettingsBO();
 
 				mainView.Location = new Point(
 					settings.XPosition,
@@ -39,14 +37,11 @@ namespace eXterm.UI
 			}
 		}
 
-		void OnViewCloseClick(object sender, EventArgs e)
+		private void OnViewCloseClick(object sender, EventArgs e)
 		{
-			SettingsBO settings = new SettingsBO(
-					EXterm.DbConnection.CreateDAOFactory().CreateSettingsDAO()
-				);
-			settings.XPosition = mainView.Location.X;
-			settings.YPosition = mainView.Location.Y;
-			mainView.Close ();
+			new SettingsBO().SavePosition(mainView.Location.X, mainView.Location.Y);
+
+			mainView.Hide ();
 		}
 	}
 }

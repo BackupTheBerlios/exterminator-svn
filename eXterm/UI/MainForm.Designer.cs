@@ -28,29 +28,57 @@ namespace eXterm.UI
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.btnClose = new eXterm.UI.Controls.Basic.PupupButton();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.ctlCalendar = new eXterm.UI.Controls.CalendarControl();
-			this.panel5 = new System.Windows.Forms.Panel();
+			this.pnlTop = new System.Windows.Forms.Panel();
 			this.panel6 = new System.Windows.Forms.Panel();
-			this.versionIndicator1 = new eXterm.UI.Controls.VersionIndicator();
-			this.panel1.SuspendLayout();
-			this.panel5.SuspendLayout();
+			this.lblVersionIndicator = new eXterm.UI.Controls.VersionIndicator();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.btnClose = new eXterm.UI.Controls.Basic.PupupButton();
+			this.pnlBottom = new System.Windows.Forms.Panel();
+			this.pnlRight = new System.Windows.Forms.Panel();
+			this.pnlLeft = new System.Windows.Forms.Panel();
+			this.ctlCalendar = new eXterm.UI.Controls.CalendarControl();
+			this.pnlTop.SuspendLayout();
 			this.panel6.SuspendLayout();
+			this.panel5.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// panel1
+			// pnlTop
 			// 
-			this.panel1.Controls.Add(this.panel6);
-			this.panel1.Controls.Add(this.panel5);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(692, 20);
-			this.panel1.TabIndex = 1;
+			this.pnlTop.Controls.Add(this.panel6);
+			this.pnlTop.Controls.Add(this.panel5);
+			this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pnlTop.Location = new System.Drawing.Point(0, 0);
+			this.pnlTop.Name = "pnlTop";
+			this.pnlTop.Size = new System.Drawing.Size(692, 20);
+			this.pnlTop.TabIndex = 1;
+			// 
+			// panel6
+			// 
+			this.panel6.Controls.Add(this.lblVersionIndicator);
+			this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+			this.panel6.Location = new System.Drawing.Point(295, 0);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(374, 20);
+			this.panel6.TabIndex = 4;
+			// 
+			// lblVersionIndicator
+			// 
+			this.lblVersionIndicator.BackColor = System.Drawing.Color.Black;
+			this.lblVersionIndicator.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lblVersionIndicator.ForeColor = System.Drawing.Color.White;
+			this.lblVersionIndicator.Location = new System.Drawing.Point(0, 0);
+			this.lblVersionIndicator.Name = "lblVersionIndicator";
+			this.lblVersionIndicator.Size = new System.Drawing.Size(374, 20);
+			this.lblVersionIndicator.TabIndex = 5;
+			// 
+			// panel5
+			// 
+			this.panel5.Controls.Add(this.btnClose);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+			this.panel5.Location = new System.Drawing.Point(669, 0);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(23, 20);
+			this.panel5.TabIndex = 3;
 			// 
 			// btnClose
 			// 
@@ -66,29 +94,29 @@ namespace eXterm.UI
 			this.btnClose.TabIndex = 2;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
-			// panel2
+			// pnlBottom
 			// 
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel2.Location = new System.Drawing.Point(0, 498);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(692, 10);
-			this.panel2.TabIndex = 2;
+			this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.pnlBottom.Location = new System.Drawing.Point(0, 498);
+			this.pnlBottom.Name = "pnlBottom";
+			this.pnlBottom.Size = new System.Drawing.Size(692, 10);
+			this.pnlBottom.TabIndex = 2;
 			// 
-			// panel3
+			// pnlRight
 			// 
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel3.Location = new System.Drawing.Point(682, 20);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(10, 478);
-			this.panel3.TabIndex = 3;
+			this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
+			this.pnlRight.Location = new System.Drawing.Point(682, 20);
+			this.pnlRight.Name = "pnlRight";
+			this.pnlRight.Size = new System.Drawing.Size(10, 478);
+			this.pnlRight.TabIndex = 3;
 			// 
-			// panel4
+			// pnlLeft
 			// 
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel4.Location = new System.Drawing.Point(0, 20);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(10, 478);
-			this.panel4.TabIndex = 4;
+			this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+			this.pnlLeft.Location = new System.Drawing.Point(0, 20);
+			this.pnlLeft.Name = "pnlLeft";
+			this.pnlLeft.Size = new System.Drawing.Size(10, 478);
+			this.pnlLeft.TabIndex = 4;
 			// 
 			// ctlCalendar
 			// 
@@ -100,44 +128,16 @@ namespace eXterm.UI
 			this.ctlCalendar.Size = new System.Drawing.Size(672, 478);
 			this.ctlCalendar.TabIndex = 5;
 			// 
-			// panel5
-			// 
-			this.panel5.Controls.Add(this.btnClose);
-			this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel5.Location = new System.Drawing.Point(669, 0);
-			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(23, 20);
-			this.panel5.TabIndex = 3;
-			// 
-			// panel6
-			// 
-			this.panel6.Controls.Add(this.versionIndicator1);
-			this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel6.Location = new System.Drawing.Point(295, 0);
-			this.panel6.Name = "panel6";
-			this.panel6.Size = new System.Drawing.Size(374, 20);
-			this.panel6.TabIndex = 4;
-			// 
-			// versionIndicator1
-			// 
-			this.versionIndicator1.BackColor = System.Drawing.Color.Black;
-			this.versionIndicator1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.versionIndicator1.ForeColor = System.Drawing.Color.White;
-			this.versionIndicator1.Location = new System.Drawing.Point(0, 0);
-			this.versionIndicator1.Name = "versionIndicator1";
-			this.versionIndicator1.Size = new System.Drawing.Size(374, 20);
-			this.versionIndicator1.TabIndex = 5;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(692, 508);
 			this.Controls.Add(this.ctlCalendar);
-			this.Controls.Add(this.panel4);
-			this.Controls.Add(this.panel3);
-			this.Controls.Add(this.panel2);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.pnlLeft);
+			this.Controls.Add(this.pnlRight);
+			this.Controls.Add(this.pnlBottom);
+			this.Controls.Add(this.pnlTop);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "MainForm";
 			this.ShowIcon = false;
@@ -145,23 +145,23 @@ namespace eXterm.UI
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "MainForm";
-			this.panel1.ResumeLayout(false);
-			this.panel5.ResumeLayout(false);
+			this.pnlTop.ResumeLayout(false);
 			this.panel6.ResumeLayout(false);
+			this.panel5.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel pnlTop;
 		private eXterm.UI.Controls.Basic.PupupButton btnClose;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.Panel pnlBottom;
+		private System.Windows.Forms.Panel pnlRight;
+		private System.Windows.Forms.Panel pnlLeft;
 		private eXterm.UI.Controls.CalendarControl ctlCalendar;
 		private System.Windows.Forms.Panel panel6;
-		private eXterm.UI.Controls.VersionIndicator versionIndicator1;
+		private eXterm.UI.Controls.VersionIndicator lblVersionIndicator;
 		private System.Windows.Forms.Panel panel5;
 
 	}

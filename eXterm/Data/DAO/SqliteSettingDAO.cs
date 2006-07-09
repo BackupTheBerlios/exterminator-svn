@@ -122,7 +122,7 @@ namespace eXterm.Data.DAO
 		{
 			EXterm.DbConnection.Lock();
 
-			if (!SettingsTableExist())
+			if (!SettingTableExist())
 				CreateTable();
 
 			EXterm.DbConnection.Lock();
@@ -136,7 +136,7 @@ namespace eXterm.Data.DAO
 			return new Setting (name.ToString (), (value == null) ? String.Empty : value.ToString());
 		}
 
-		private bool SettingsTableExist()
+		private bool SettingTableExist()
 		{
 			DataTable tableTemplate = new DataTable();
 			tableTemplate.Columns.Add(new DataColumn("name", Type.GetType("System.String")));

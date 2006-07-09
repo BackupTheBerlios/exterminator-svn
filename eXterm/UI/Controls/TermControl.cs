@@ -14,11 +14,14 @@ namespace eXterm.UI.Controls
 	{
 		private Term term;
 
-		public TermControl()
+		public TermControl(Term term)
 		{
 			InitializeComponent();
-
 			SetupStyle();
+
+			this.term = term;
+
+			new TermPresenter(this);
 		}
 
 		#region ITermView Members
@@ -39,6 +42,20 @@ namespace eXterm.UI.Controls
 		{
 			get { return textLbl.Text; }
 			set { textLbl.Text = value; }
+		}
+
+		#endregion
+
+		#region IComparable members
+
+		public int CompareTo(object o)
+		{
+			if (!(o is ITermView))
+				return -1;
+
+			ITermView termView = (ITermView)o;
+
+			return term.CompareTo(term);
 		}
 
 		#endregion

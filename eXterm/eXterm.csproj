@@ -30,7 +30,7 @@
   <ItemGroup>
     <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\SQLite.NET.dll</HintPath>
+      <HintPath>.\SQLite.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BO\SettingsBO.cs" />
+    <Compile Include="Data\BO\TermBO.cs" />
     <Compile Include="Data\Connections\Connection.cs" />
     <Compile Include="Data\Connections\SqliteConnection.cs" />
     <Compile Include="Data\DAOFactories\DAOFactory.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Data\Model\Term.cs" />
     <Compile Include="Data\DBUtils\SqliteStarter.cs" />
     <Compile Include="Data\DBUtils\Starter.cs" />
+    <Compile Include="EXtermApplicationContext.cs" />
     <Compile Include="Settings\Setup.cs" />
     <Compile Include="Settings\SetupResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -101,15 +103,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <Compile Include="UI\Controls\Basic\PupupButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +126,7 @@
     <Compile Include="UI\Controls\DayControl.Designer.cs">
       <DependentUpon>DayControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\DayPresenter.cs" />
     <Compile Include="UI\Controls\DayView.cs" />
     <Compile Include="UI\Controls\DayViewCollection.cs" />
     <Compile Include="UI\Controls\TermControl.cs">
@@ -141,7 +135,9 @@
     <Compile Include="UI\Controls\TermControl.Designer.cs">
       <DependentUpon>TermControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\TermPresenter.cs" />
     <Compile Include="UI\Controls\TermView.cs" />
+    <Compile Include="UI\Controls\TermViewCollection.cs" />
     <Compile Include="UI\Controls\VersionIndicator.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,15 +157,16 @@
     <Compile Include="UI\MainView.cs" />
     <Compile Include="Utils\ConversionUtils.cs" />
     <Compile Include="Utils\DateTimeUtils.cs" />
+    <Compile Include="Utils\ImageUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Images\calendar16red.gif" />
     <Content Include="SQLite3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogic\" />
-    <Folder Include="Libs\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

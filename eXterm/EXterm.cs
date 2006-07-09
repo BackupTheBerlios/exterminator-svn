@@ -38,7 +38,7 @@ namespace eXterm
 			PerformDatabaseStartup();
 
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			Application.Run(new EXtermApplicationContext (new MainForm ()));
 		}
 
 		private static void PerformDatabaseStartup ()
@@ -53,6 +53,20 @@ namespace eXterm
 			dbConnection = Connection.CreateConnection(Setup.ConnectionString);
 			dbConnection.Connect();
 			dbConnection.PerformStartup();
+
+#if DEBUG
+			//FillTestData();
+#endif
 		}
+
+#if DEBUG
+		private static void FillTestData()
+		{
+			//Data.Model.Term term = new Data.Model.Term(Utils.DateTimeUtils.GetBeginningOfWeek(DateTime.Now).AddHours(12), "Term testowy");
+			Data.Model.Term term = new Data.Model.Term(new DateTime (2006,6,27).AddHours(12), "Term testowy");
+			EXterm.DbConnection.CreateDAOFactory().CreateTermDAO().Insert(term);
+		}
+#endif
+
 	}
 }

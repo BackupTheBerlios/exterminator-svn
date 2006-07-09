@@ -12,10 +12,15 @@ namespace eXterm.UI
 {
 	public partial class MainForm : FormBase, IMainView
 	{
+		private bool shown = false;
+
 		public MainForm()
 		{
 			InitializeComponent();
 			SetupStyle();
+			SetupMovingAreas(
+				new Control[] { pnlTop, pnlLeft, pnlBottom, pnlRight, lblVersionIndicator }
+				);
 
 			new MainPresenter(this);
 		}
@@ -29,9 +34,27 @@ namespace eXterm.UI
 			get { return ctlCalendar; }
 		}
 
+		public new bool Shown
+		{
+			get { return shown; }
+		}
+
+		public new void Show()
+		{
+			shown = true;
+			base.Show();
+		}
+
 		public new void Close()
 		{
+			shown = false;
 			base.Close();
+		}
+
+		public new void Hide()
+		{
+			shown = false;
+			base.Hide();
 		}
 
 		/*public new Point Location

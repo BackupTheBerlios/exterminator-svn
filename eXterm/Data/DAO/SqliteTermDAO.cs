@@ -4,39 +4,58 @@ using System.Text;
 using System.Data;
 
 using eXterm.Data.Model;
+using eXterm.Utils;
 
 namespace eXterm.Data.DAO
 {
 	public class SqliteTermDAO : ITermDAO
 	{
+		#region Load
+
 		public IList<Term> LoadAll ()
 		{
-			DataTable termTableTemplate = new DataTable();
-			termTableTemplate.Columns.Add(new DataColumn("Id"));
-			termTableTemplate.Columns.Add(new DataColumn("Date"));
-			termTableTemplate.Columns.Add(new DataColumn("Text"));
-
 			EXterm.DbConnection.Lock();
-
 			DataTable termsTable = EXterm.DbConnection.ExecuteQuery(
 				"SELECT * FROM Term",
-				termTableTemplate
+				TermTableTemplate
 			);
-
 			EXterm.DbConnection.Unlock();
 
-			IList<Term> terms = new List<Term>(termsTable.Rows.Count);
-
-			foreach (DataRow row in termsTable.Rows)
-			{
-				Term t = CreateValidTerm(row["Id"], row["Date"], row["Text"]);
-
-				if (t != null)
-					terms.Add(t);
-			}
-
-			return terms;
+			return GetTerms(termsTable);
 		}
+
+		public IList<Term> LoadNonRepetitiveFor(long fromDate, long toDate)
+		{
+			EXterm.DbConnection.Lock();
+			DataTable termsTable = EXterm.DbConnection.ExecuteQuery(
+				"SELECT * FROM Term " + 
+				"WHERE Date >= " + fromDate + " AND Date <= " + toDate,
+				TermTableTemplate
+			);
+			EXterm.DbConnection.Unlock();
+
+			return GetTerms(termsTable);
+		}
+
+		public IList<Term> LoadNonRepetitiveFor(DateTime fromDate, DateTime toDate)
+		{
+			return LoadNonRepetitiveFor(
+				DateTimeUtils.GetSeconds (fromDate),
+				DateTimeUtils.GetSeconds (toDate)
+				);
+		}
+
+		public IList<Term> LoadNonRepetitiveFor(DateTime day)
+		{
+			return LoadNonRepetitiveFor(
+				day.Date,
+				day.Date.AddDays(1).AddSeconds(-1)
+			);
+		}
+
+		#endregion Load
+
+		#region Insert / Update / Delete
 
 		public bool Insert(Term term)
 		{
@@ -92,17 +111,31 @@ namespace eXterm.Data.DAO
 			return true;
 		}
 
+		#endregion
+
 		public void PerformStartup ()
 		{
 			EXterm.DbConnection.Lock();
 
-			if (!SettingsTableExist())
+			if (!TermTableExist())
 				CreateTable();
 
 			EXterm.DbConnection.Unlock();
 		}
 
-		private bool SettingsTableExist()
+		private DataTable TermTableTemplate
+		{
+			get
+			{
+				DataTable termTableTemplate = new DataTable();
+				termTableTemplate.Columns.Add(new DataColumn("Id"));
+				termTableTemplate.Columns.Add(new DataColumn("Date"));
+				termTableTemplate.Columns.Add(new DataColumn("Text"));
+				return termTableTemplate;
+			}
+		}
+
+		private bool TermTableExist()
 		{
 			DataTable tableTemplate = new DataTable();
 			tableTemplate.Columns.Add(new DataColumn("name", Type.GetType("System.String")));
@@ -113,6 +146,24 @@ namespace eXterm.Data.DAO
 			);
 
 			return table.Rows.Count >= 1;
+		}
+
+		private IList<Term> GetTerms(DataTable termsTable)
+		{
+			IList<Term> terms = new List<Term> ();
+
+			if  (termsTable == null)
+				return terms;
+
+			foreach (DataRow row in termsTable.Rows)
+			{
+				Term t = CreateValidTerm(row["Id"], row["Date"], row["Text"]);
+
+				if (t != null)
+					terms.Add(t);
+			}
+
+			return terms;
 		}
 
 		private void CreateTable()

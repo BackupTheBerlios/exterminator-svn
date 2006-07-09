@@ -15,6 +15,10 @@ namespace eXterm.UI
 		ICalendarView CalendarView { get; }
 		Point Location { get; set; }
 
+		bool Shown { get; }
+
+		void Show();
 		void Close();
+		void Hide();
 	}
 }

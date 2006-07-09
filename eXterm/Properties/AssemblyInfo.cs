@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Home")]
 [assembly: AssemblyProduct("eXterm")]
-[assembly: AssemblyCopyright("Copyright © Home 2006")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +28,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.0.1.2")]
-[assembly: AssemblyFileVersion("0.0.1.2")]
+[assembly: AssemblyVersion("0.0.1.3")]
+[assembly: AssemblyFileVersion("0.0.1.3")]
