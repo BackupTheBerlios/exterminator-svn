@@ -33,9 +33,11 @@ namespace eXterm.UI.Controls.Basic
 			// 
 			// btnButton
 			// 
+			this.btnButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.btnButton.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnButton.Location = new System.Drawing.Point(0, 0);
+			this.btnButton.Margin = new System.Windows.Forms.Padding(0);
 			this.btnButton.Name = "btnButton";
 			this.btnButton.Size = new System.Drawing.Size(149, 46);
 			this.btnButton.TabIndex = 0;
@@ -48,6 +50,7 @@ namespace eXterm.UI.Controls.Basic
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.btnButton);
+			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "PupupButton";
 			this.Size = new System.Drawing.Size(149, 46);
 			this.ResumeLayout(false);

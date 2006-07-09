@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using eXterm.Data.Model;
+using eXterm.Utils;
 
 namespace eXterm.UI.Controls
 {
@@ -19,6 +20,7 @@ namespace eXterm.UI.Controls
 		{
 			InitializeComponent();
 			SetupStyle();
+			SetImages();
 
 			this.Day = day;
 
@@ -110,5 +112,10 @@ namespace eXterm.UI.Controls
 		}
 
 		#endregion
+
+		private void SetImages()
+		{
+			btnNewTerm.Image = ImageUtils.NewBitmap;
+		}
 	}
 }

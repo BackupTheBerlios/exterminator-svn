@@ -15,7 +15,7 @@ namespace eXterm.UI.Controls
 		int Width { get; set; }
 		Point Location { get; set; }
 
-		string DateLbl { get; set; }
+		string HourLbl { get; set; }
 		string TextLbl { get; set; }
 	}
 }

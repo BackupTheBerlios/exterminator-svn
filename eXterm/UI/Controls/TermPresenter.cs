@@ -16,7 +16,7 @@ namespace eXterm.UI.Controls
 
 			SubscribeToEvents();
 
-			termView.DateLbl = DateTimeUtils.GetHourMinuteStr(termView.Term.Date);
+			termView.HourLbl = DateTimeUtils.GetHourMinuteStr(termView.Term.Date);
 			termView.TextLbl = termView.Term.Text;
 		}
 

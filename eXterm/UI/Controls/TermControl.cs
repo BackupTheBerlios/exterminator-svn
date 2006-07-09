@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using eXterm.Data.Model;
+using eXterm.Settings;
+using eXterm.Utils;
 
 namespace eXterm.UI.Controls
 {
@@ -18,6 +20,7 @@ namespace eXterm.UI.Controls
 		{
 			InitializeComponent();
 			SetupStyle();
+			SetImages();
 
 			this.term = term;
 
@@ -32,16 +35,16 @@ namespace eXterm.UI.Controls
 			set { term = value; }
 		}
 
-		public string DateLbl
+		public string HourLbl
 		{
-			get { return dateLbl.Text; }
-			set { dateLbl.Text = value; }
+			get { return lblHour.Text; }
+			set { lblHour.Text = value; }
 		}
 
 		public string TextLbl
 		{
-			get { return textLbl.Text; }
-			set { textLbl.Text = value; }
+			get { return lblText.Text; }
+			set { lblText.Text = value; }
 		}
 
 		#endregion
@@ -59,5 +62,23 @@ namespace eXterm.UI.Controls
 		}
 
 		#endregion
+
+		protected new void SetupStyle()
+		{
+			base.SetupStyle();
+			lblText.BackColor = Setup.DefaultBackgroundColor;
+
+			lblText.Font = Setup.DefaultTermTextFont;
+			lblHour.Font = Setup.DefaultTermHourFont;
+
+			lblText.ForeColor = Setup.DefaultTermTextForegroundColor;
+			lblHour.ForeColor = Setup.DefaultTermHourForegroundColor;
+		}
+
+		private void SetImages()
+		{
+			btnDeleteTerm.Image = ImageUtils.DeleteBitmap;
+			btnEditTerm.Image = ImageUtils.EditBitmap;
+		}
 	}
 }

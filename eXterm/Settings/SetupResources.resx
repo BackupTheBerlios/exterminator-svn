@@ -132,6 +132,36 @@
   <data name="DefaultHoverColor" xml:space="preserve">
     <value>DarkGray</value>
   </data>
+  <data name="DefaultTermHourFontFamilyName" xml:space="preserve">
+    <value>Tahoma</value>
+  </data>
+  <data name="DefaultTermHourFontGraphicsUnit" xml:space="preserve">
+    <value>Pixel</value>
+  </data>
+  <data name="DefaultTermHourFontSize" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="DefaultTermHourFontStyle" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="DefaultTermHourForegroundColor" xml:space="preserve">
+    <value>LightGray</value>
+  </data>
+  <data name="DefaultTermTextFontFamilyName" xml:space="preserve">
+    <value>Tahoma</value>
+  </data>
+  <data name="DefaultTermTextFontGraphicsUnit" xml:space="preserve">
+    <value>Pixel</value>
+  </data>
+  <data name="DefaultTermTextFontSize" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="DefaultTermTextFontStyle" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="DefaultTermTextForegroundColor" xml:space="preserve">
+    <value>White</value>
+  </data>
   <data name="DefaultXPosition" xml:space="preserve">
     <value>100</value>
   </data>

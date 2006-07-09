@@ -106,6 +106,96 @@ namespace eXterm.Settings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tahoma.
+        /// </summary>
+        internal static string DefaultTermHourFontFamilyName {
+            get {
+                return ResourceManager.GetString("DefaultTermHourFontFamilyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pixel.
+        /// </summary>
+        internal static string DefaultTermHourFontGraphicsUnit {
+            get {
+                return ResourceManager.GetString("DefaultTermHourFontGraphicsUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10.
+        /// </summary>
+        internal static string DefaultTermHourFontSize {
+            get {
+                return ResourceManager.GetString("DefaultTermHourFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        internal static string DefaultTermHourFontStyle {
+            get {
+                return ResourceManager.GetString("DefaultTermHourFontStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LightGray.
+        /// </summary>
+        internal static string DefaultTermHourForegroundColor {
+            get {
+                return ResourceManager.GetString("DefaultTermHourForegroundColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tahoma.
+        /// </summary>
+        internal static string DefaultTermTextFontFamilyName {
+            get {
+                return ResourceManager.GetString("DefaultTermTextFontFamilyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pixel.
+        /// </summary>
+        internal static string DefaultTermTextFontGraphicsUnit {
+            get {
+                return ResourceManager.GetString("DefaultTermTextFontGraphicsUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10.
+        /// </summary>
+        internal static string DefaultTermTextFontSize {
+            get {
+                return ResourceManager.GetString("DefaultTermTextFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bold.
+        /// </summary>
+        internal static string DefaultTermTextFontStyle {
+            get {
+                return ResourceManager.GetString("DefaultTermTextFontStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White.
+        /// </summary>
+        internal static string DefaultTermTextForegroundColor {
+            get {
+                return ResourceManager.GetString("DefaultTermTextForegroundColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 100.
         /// </summary>
         internal static string DefaultXPosition {

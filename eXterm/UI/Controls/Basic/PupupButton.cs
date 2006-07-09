@@ -26,6 +26,18 @@ namespace eXterm.UI.Controls.Basic
 			set { btnButton.Text = value; }
 		}
 
+		public Image Image
+		{
+			get
+			{
+				return btnButton.Image;
+			}
+			set
+			{
+				btnButton.Image = value;
+			}
+		}
+
 		private void btnButton_Click(object sender, EventArgs e)
 		{
 			if (Click != null)
