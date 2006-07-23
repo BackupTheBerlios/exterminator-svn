@@ -10,6 +10,7 @@ namespace eXterm.UI.Controls
 	public interface IDayView : IComparable
 	{
 		event EventHandler Load;
+		event EventHandler NewTermClick;
 
 		TermViewCollection TermViews { get; set; }
 		DateTime Day { get; set; }
@@ -28,5 +29,7 @@ namespace eXterm.UI.Controls
 		void RemoveTermViews();
 
 		ITermView CreateTermView(Term term);
+
+		IEditTermView CreateEditTermView();
 	}
 }

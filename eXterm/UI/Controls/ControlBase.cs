@@ -9,6 +9,11 @@ namespace eXterm.UI.Controls
 {
 	public class ControlBase : UserControl
 	{
+		public ControlBase()
+		{
+			DoubleBuffered = true;
+		}
+
 		protected void SetupStyle()
 		{
 			BackColor = Setup.DefaultBackgroundColor;

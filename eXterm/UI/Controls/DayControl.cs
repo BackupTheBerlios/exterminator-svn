@@ -29,6 +29,8 @@ namespace eXterm.UI.Controls
 
 		#region IDayView Members
 
+		public event EventHandler NewTermClick;
+
 		[DesignerSerializationVisibility (DesignerSerializationVisibility.Hidden)]
 		public TermViewCollection TermViews
 		{
@@ -97,6 +99,11 @@ namespace eXterm.UI.Controls
 			return new TermControl(term);
 		}
 
+		public IEditTermView CreateEditTermView()
+		{
+			return new EditTermForm();
+		}
+
 		#endregion
 
 		#region IComparable members
@@ -116,6 +123,12 @@ namespace eXterm.UI.Controls
 		private void SetImages()
 		{
 			btnNewTerm.Image = ImageUtils.NewBitmap;
+		}
+
+		private void btnNewTerm_Click(object sender, EventArgs e)
+		{
+			if (null != NewTermClick)
+				NewTermClick(sender, e);
 		}
 	}
 }

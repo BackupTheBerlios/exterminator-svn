@@ -87,6 +87,7 @@ namespace eXterm.UI
 			this.btnClose.BtnText = "X";
 			this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(238)));
 			this.btnClose.ForeColor = System.Drawing.Color.White;
+			this.btnClose.Image = null;
 			this.btnClose.Location = new System.Drawing.Point(4, 2);
 			this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnClose.Name = "btnClose";

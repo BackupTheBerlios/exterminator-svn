@@ -69,6 +69,7 @@ namespace eXterm.UI.Controls
 			this.btnNewTerm.Name = "btnNewTerm";
 			this.btnNewTerm.Size = new System.Drawing.Size(25, 25);
 			this.btnNewTerm.TabIndex = 0;
+			this.btnNewTerm.Click += new System.EventHandler(this.btnNewTerm_Click);
 			// 
 			// lblDay
 			// 

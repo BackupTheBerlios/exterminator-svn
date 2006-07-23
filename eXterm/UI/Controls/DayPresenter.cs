@@ -5,6 +5,7 @@ using System.Drawing;
 
 using eXterm.Data.Model;
 using eXterm.Data.BO;
+using eXterm.UI;
 
 namespace eXterm.UI.Controls
 {
@@ -21,6 +22,7 @@ namespace eXterm.UI.Controls
 		private void SubscribeToEvents()
 		{
 			dayView.Load += new EventHandler(OnViewLoad);
+			dayView.NewTermClick += new EventHandler(OnViewNewTermClick);
 		}
 
 		void OnViewLoad(object sender, EventArgs e)
@@ -32,6 +34,13 @@ namespace eXterm.UI.Controls
 				ArrangeTermViewPositions();
 				DisplayTermViews();
 			}
+		}
+
+		void OnViewNewTermClick(object sender, EventArgs e)
+		{
+			IEditTermView editTermView = dayView.CreateEditTermView();
+			editTermView.Term = new Term(dayView.Day);
+			editTermView.Show();
 		}
 
 		private void CreateTermViews()

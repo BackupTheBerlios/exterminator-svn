@@ -130,6 +130,14 @@
     <Compile Include="UI\Controls\DayPresenter.cs" />
     <Compile Include="UI\Controls\DayView.cs" />
     <Compile Include="UI\Controls\DayViewCollection.cs" />
+    <Compile Include="UI\EditTermForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditTermForm.Designer.cs">
+      <DependentUpon>EditTermForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditTermPresenter.cs" />
+    <Compile Include="UI\EditTermView.cs" />
     <Compile Include="UI\Controls\TermControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +173,10 @@
     <EmbeddedResource Include="Images\delete.png" />
     <EmbeddedResource Include="Images\page9.png" />
     <EmbeddedResource Include="Images\find10.gif" />
+    <EmbeddedResource Include="UI\EditTermForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditTermForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Content Include="SQLite3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

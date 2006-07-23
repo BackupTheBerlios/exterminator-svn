@@ -18,6 +18,7 @@ namespace eXterm.UI
 
 		public FormBase()
 		{
+			DoubleBuffered = true;
 			this.Activated += new EventHandler(OnActivated);
 			this.MouseDown += new MouseEventHandler(OnMouseDown);
 			this.MouseUp += new MouseEventHandler(OnMouseUp);
@@ -26,11 +27,14 @@ namespace eXterm.UI
 
 		protected void SetupMovingAreas(Control[] controls)
 		{
-			foreach (Control control in controls)
+			if (controls != null)
 			{
-				control.MouseDown += new MouseEventHandler(OnMouseDown);
-				control.MouseUp += new MouseEventHandler(OnMouseUp);
-				control.MouseMove += new MouseEventHandler(OnMouseMove);
+				foreach (Control control in controls)
+				{
+					control.MouseDown += new MouseEventHandler(OnMouseDown);
+					control.MouseUp += new MouseEventHandler(OnMouseUp);
+					control.MouseMove += new MouseEventHandler(OnMouseMove);
+				}
 			}
 		}
 

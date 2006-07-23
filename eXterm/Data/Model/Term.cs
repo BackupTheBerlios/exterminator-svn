@@ -19,6 +19,14 @@ namespace eXterm.Data.Model
 			this.dirty = true;
 		}
 
+		public Term(DateTime date)
+			: this(date, string.Empty)
+		{ }
+
+		public Term()
+			: this(DateTime.Now)
+		{ }
+
 		public long Id
 		{
 			get { return id; }
